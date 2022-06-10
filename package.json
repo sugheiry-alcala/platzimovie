@@ -1,0 +1,19 @@
+{
+  "name": "platzimovie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sugheiry-Alcala/Platzimovie.git"
+  },
+  "author": "@sugheiry :-)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sugheiry-Alcala/Platzimovie/issues"
+  },
+  "homepage": "https://github.com/sugheiry-Alcala/Platzimovie#readme"
+}

@@ -29,10 +29,8 @@ function createMovies(movies, container) {
 }
 
 
-
 function createCategories(categories, container) {
   container.innerHTML = "";
-
 
   categories.forEach(category => {
     const categoriesPreviewList = document.querySelector('#categoriesPreview .categoriesPreview-list')
@@ -89,5 +87,11 @@ async function getMoviesBySearch(query) {
 
   createMovies(movies, genericSection);
 }
-getTrendingMoviesPreview();
-getCategoriesPreview();
+async function getTrendingMovies() {
+  const { data } = await api('trending/movie/day');
+  const movies = data.results;
+
+  createMovies(movies, genericSection);
+}
+
+

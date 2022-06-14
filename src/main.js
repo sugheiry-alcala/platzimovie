@@ -11,7 +11,7 @@ const api = axios.create({
 
 //utils
 
-function createMovies(movies, container){
+function createMovies(movies, container) {
   container.innerHTML = '';
 
   movies.forEach(movie => {
@@ -30,7 +30,7 @@ function createMovies(movies, container){
 
 
 
-function createCategories(categories, container){
+function createCategories(categories, container) {
   container.innerHTML = "";
 
 
@@ -50,7 +50,7 @@ function createCategories(categories, container){
 
     categoryTitle.appendChild(categoryTitleText);
     categoryContainer.appendChild(categoryTitle);
-    container .appendChild(categoryContainer);
+    container.appendChild(categoryContainer);
   });
 }
 
@@ -67,7 +67,7 @@ async function getCategoriesPreview() {
   const categories = data.genres;
 
 
-createCategories(categories, categoriesPreviewList);
+  createCategories(categories, categoriesPreviewList);
 }
 
 async function getMoviesByCategory(id) {
@@ -78,6 +78,16 @@ async function getMoviesByCategory(id) {
   });
   const movies = data.results;
   createMovies(movies, genericSection)
+}
+async function getMoviesBySearch(query) {
+  const { data } = await api('search/movie', {
+    params: {
+      query,
+    },
+  });
+  const movies = data.results;
+
+  createMovies(movies, genericSection);
 }
 getTrendingMoviesPreview();
 getCategoriesPreview();

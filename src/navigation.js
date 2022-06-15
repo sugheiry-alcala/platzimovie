@@ -3,7 +3,10 @@ searchFormBtn.addEventListener('click', () => {
 });
 
 trendingBtn.addEventListener('click', () => {
-  location.hash = '#trends=';
+  location.hash = '#trends=' + searchFormInput.value;
+});
+trendingBtn.addEventListener('click', () => {
+  location.hash = '#trends';
 });
 arrowBtn.addEventListener('click', () => {
   history.back();
@@ -15,6 +18,7 @@ window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 
 function navigator() {
+  console.log({location});
   if (location.hash.startsWith("#trends")) {
     trendsPage()
   } else if (location.hash.startsWith("#search=")) {
@@ -24,7 +28,7 @@ function navigator() {
   } else if (location.hash.startsWith("#category=")) {
     categoriesPage()
   } else {
-    homePage()
+    homePage();
   }
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
@@ -46,8 +50,8 @@ function homePage() {
   genericSection.classList.add('inactive');
   movieDetailSection.classList.add('inactive');
 
-  getTrendingMoviesPreview()
-  getCategoriesPreview()
+  getTrendingMoviesPreview();
+  getCategoriesPreview();
 }
 function categoriesPage() {
   console.log("Categories!!");
@@ -68,12 +72,12 @@ function categoriesPage() {
   // ['#category', 'id-name']
   const [_, categoryData] = location.hash.split('=');
   const [categoryId, categoryName] = categoryData.split('-');
-
+  
   headerCategoryTitle.innerHTML = categoryName;
 
   getMoviesByCategory(categoryId);
-
 }
+
 function movieDetailsPage() {
   console.log("Movie!!");
 
@@ -87,14 +91,17 @@ function movieDetailsPage() {
 
   trendingPreviewSection.classList.add('inactive');
   categoriesPreviewSection.classList.add('inactive');
-  genericSection.classList.remove('inactive');
-  movieDetailSection.classList.add('inactive');
+  movieDetailSection.classList.remove('inactive');
+
+  // ['#movie', '234567']
+  const [_, movieId] = location.hash.split('=');
+  getMovieById(movieId);
 }
 function searchPage() {
   console.log("Search!!");
 
   headerSection.classList.remove('header-container--long');
-  //headerSection.style.background = '';
+  headerSection.style.background = '';
   arrowBtn.classList.remove('inactive');
   arrowBtn.classList.remove('header-arrow--white');
   headerTitle.classList.add('inactive');

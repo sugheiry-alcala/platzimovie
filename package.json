@@ -2,18 +2,18 @@
   "name": "platzimovie",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/sugheiry-Alcala/Platzimovie.git"
+    "url": "git+https://github.com/https://github.com/sugheiry-alcala/platzimovie"
   },
   "author": "@sugheiry :-)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sugheiry-Alcala/Platzimovie/issues"
+  "url": "https://github.com/https://github.com/sugheiry-alcala/platzimovie/issues"
   },
-  "homepage": "https://github.com/sugheiry-Alcala/Platzimovie#readme"
+  "homepage": "https://github.com/https://github.com/sugheiry-alcala/platzimovie#readme"
 }
